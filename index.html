@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Josphine Njagi | Data Analyst</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 0;
+            background: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            font-weight: bold;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #6b7280;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #1f2937;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-text h3 {
+            color: #2563eb;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .experience-item {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title {
+            color: #1f2937;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .experience-company {
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        .experience-date {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .experience-description {
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .achievement {
+            background: #f0f9ff;
+            border-left: 4px solid #2563eb;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+
+        .achievement-title {
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .impact {
+            background: #dcfce7;
+            border-left: 4px solid #16a34a;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+            color: #166534;
+            font-weight: 500;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: #f9fafb;
+            border-radius: 15px;
+            padding: 3rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category h3 {
+            color: #2563eb;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-item {
+            background: white;
+            color: #4b5563;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        }
+
+        /* Education Section */
+        .education {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .education-item {
+            margin-bottom: 2rem;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-degree {
+            color: #1f2937;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-school {
+            color: #2563eb;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-date {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .education-details {
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #4b5563;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            background: #f3f4f6;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+
+        .contact-item:hover {
+            background: #e5e7eb;
+        }
+
+        /* Footer */
+        footer {
+            background: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: start;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #2563eb;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Key Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-image">JN</div>
+                <div class="hero-text">
+                    <h1>Hey there!</h1>
+                    <p>I'm <strong class="highlight">Josphine Njagi</strong>, a passionate Data Analyst from Toronto, Canada, with strong expertise in <strong>machine learning, statistics, and product analytics</strong>. I have a proven track record of delivering cross-functional results and synthesizing complex analyses into actionable business recommendations that drive measurable impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <h2 class="section-title">About</h2>
+        
+        <div class="about">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Who I am</h3>
+                    <p>My journey into data analytics began with my Bachelor's degree in Statistics and Mathematics from the University of Toronto, where I developed a strong foundation in statistical analysis, machine learning, and mathematical reasoning.</p>
+                    
+                    <p>Currently pursuing a Master's in Data Engineering at Edinburgh Napier University, I'm expanding my expertise in data strategy, neural networks, natural language processing, and enterprise-level data solutions.</p>
+
+                    <h3>Why I Love Data Analytics</h3>
+                    <p>Data analytics allows me to combine my passion for problem-solving with tangible business impact. I thrive on uncovering insights from complex datasets and transforming them into strategies that drive real results.</p>
+                    
+                    <p>From generating $25k in additional monthly revenue through segmentation analysis to reducing churn by 45% by identifying critical system bugs, I'm driven to use data-driven strategies to solve business challenges and optimize processes.</p>
+                </div>
+                <div class="about-image">Data Analytics</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="container">
+        <h2 class="section-title">Professional Experience</h2>
+        
+        <div class="experience">
+            <!-- Current Role -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Data Analyst</div>
+                        <div class="experience-company">Mary Browns International Brands Inc</div>
+                    </div>
+                    <div class="experience-date">July 2023 - Present</div>
+                </div>
+                <div class="experience-description">
+                    Leading data analytics initiatives as the sole in-house data specialist, overseeing ETL processes, managing a team of 3 external consultants, and serving as the primary contact for end-to-end data source management across 10+ external vendors.
+                </div>
+                <div class="achievement">
+                    <div class="achievement-title">Key Accomplishment:</div>
+                    Investigated and rectified persistent data errors that had existed for two years, identified shortcomings in POS and inventory systems, and proposed a better POS solution currently undergoing adoption.
+                </div>
+            </div>
+
+            <!-- Wave Financial -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Data Analyst</div>
+                        <div class="experience-company">Wave Financial Inc</div>
+                    </div>
+                    <div class="experience-date">June 2022 - March 2023</div>
+                </div>
+                <div class="experience-description">
+                    Collaborated with Product Managers and Executive Teams to conduct segmentation analyses, optimize tracking models in Looker, and complete 20+ high-complexity report requests monthly using SQL, Looker, and Google Suite.
+                </div>
+                <div class="achievement">
+                    <div class="achievement-title">Key Accomplishments:</div>
+                    • Generated $25k additional monthly revenue through contractor segmentation analysis<br>
+                    • Reduced subscription churn by 45% by identifying and fixing a critical product bug<br>
+                    • Increased productivity by 5% through automated month-end tracking optimization
+                </div>
+            </div>
+
+            <!-- Softek -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Data Analyst</div>
+                        <div class="experience-company">Softek</div>
+                    </div>
+                    <div class="experience-date">September 2020 - June 2022</div>
+                </div>
+                <div class="experience-description">
+                    Applied statistical analysis and machine learning techniques to identify customer conversion patterns, performed monthly variance analysis for 5+ banks, and developed automated data solutions using Python and SQL.
+                </div>
+                <div class="achievement">
+                    <div class="achievement-title">Key Accomplishments:</div>
+                    • Boosted customer conversions by 74% through statistical analysis and ML insights<br>
+                    • Reduced manual work by 30% through automated data extraction processes<br>
+                    • Maintained key client relationships for financial regulatory support
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container">
+        <h2 class="section-title">Key Projects & Impact</h2>
+        <p style="text-align: center; color: #6b7280; margin-bottom: 3rem; font-size: 1.1rem;">Data-Driven Solutions</p>
+        
+        <div class="projects-grid">
+            <!-- Revenue Generation Project -->
+            <div class="project-card">
+                <div class="project-image">💰</div>
+                <div class="project-content">
+                    <h3 class="project-title">Revenue Optimization Analysis</h3>
+                    <p class="project-description">Conducted comprehensive segmentation analysis of payroll product users to identify market opportunities and present findings to Executive Team.</p>
+                    
+                    <div class="impact">
+                        💡 Impact: Generated $25k additional monthly revenue through new "contractor-only" plan
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">Looker</span>
+                        <span class="tech-tag">Statistical Analysis</span>
+                        <span class="tech-tag">Market Segmentation</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Churn Reduction Project -->
+            <div class="project-card">
+                <div class="project-image">📉</div>
+                <div class="project-content">
+                    <h3 class="project-title">Churn Reduction Initiative</h3>
+                    <p class="project-description">Identified critical subscription product bug causing seasonal churn spikes through data analysis and collaborated with engineering team on solution implementation.</p>
+                    
+                    <div class="impact">
+                        🎯 Impact: Achieved 45% reduction in January churn following bug fix
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">Data Analysis</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">Problem Solving</span>
+                        <span class="tech-tag">Cross-functional Collaboration</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conversion Optimization -->
+            <div class="project-card">
+                <div class="project-image">📈</div>
+                <div class="project-content">
+                    <h3 class="project-title">Customer Conversion Analysis</h3>
+                    <p class="project-description">Applied advanced statistical analysis and machine learning techniques to identify customer behavioral patterns and optimize conversion funnels.</p>
+                    
+                    <div class="impact">
+                        🚀 Impact: Increased customer conversions by 74% through insights implementation
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">R</span>
+                        <span class="tech-tag">Statistical Analysis</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Process Automation -->
+            <div class="project-card">
+                <div class="project-image">⚡</div>
+                <div class="project-content">
+                    <h3 class="project-title">Data Pipeline Automation</h3>
+                    <p class="project-description">Developed automated ETL processes and Python scripts for seamless database connectivity, query execution, and stakeholder data delivery.</p>
+                    
+                    <div class="impact">
+                        ⏰ Impact: Reduced manual work by 30% and increased reporting efficiency
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">ETL</span>
+                        <span class="tech-tag">Process Automation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container">
+        <h2 class="section-title">Technical Toolkit</h2>
+        <p style="text-align: center; color: #6b7280; margin-bottom: 3rem; font-size: 1.1rem;">Technologies & Expertise</p>
+        
+        <div class="skills">
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">R</span>
+                        <span class="skill-item">SQL</span>
+                        <span class="skill-item">VBA</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Data Analysis & ML</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Machine Learning</span>
+                        <span class="skill-item">Statistical Analysis</span>
+                        <span class="skill-item">A/B Testing</span>
+                        <span class="skill-item">Causal Inference</span>
+                        <span class="skill-item">Neural Networks</span>
+                        <span class="skill-item">NLP</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Looker</span>
+                        <span class="skill-item">Google Sheets</span>
+                        <span class="skill-item">Google Slides</span>
+                        <span class="skill-item">MS Excel (Advanced)</span>
+                        <span class="skill-item">Database Management</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Data Engineering</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">ETL Processes</span>
+                        <span class="skill-item">Data Pipelines</span>
+                        <span class="skill-item">Data Warehousing</span>
+                        <span class="skill-item">Business Intelligence</span>
+                        <span class="skill-item">Big Data Analytics</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Business Skills</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Product Analytics</span>
+                        <span class="skill-item">Team Leadership</span>
+                        <span class="skill-item">Cross-functional Collaboration</span>
+                        <span class="skill-item">Stakeholder Management</span>
+                        <span class="skill-item">Process Optimization</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="container">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="education">
+            <div class="education-item">
+                <div class="education-degree">Master's in Data Engineering (Ongoing)</div>
+                <div class="education-school">Edinburgh Napier University, Scotland, UK</div>
+                <div class="education-date">2024 - 2026</div>
+                <div class="education-details">
+                    <strong>Relevant Topics:</strong> Data Wrangling and Analysis with R, Machine Learning, Neural Networks, Convolutional Neural Networks, Natural Language Processing, Data Strategy, Business Intelligence, Big Data Analytics, Data Mining, Data Warehousing, and Enterprise Resource Planning.
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-degree">Bachelor of Science with Honors in Statistics and Mathematics</div>
+                <div class="education-school">University of Toronto, Canada</div>
+                <div class="education-date">2015 - 2019</div>
+                <div class="education-details">
+                    <strong>Relevant Modules:</strong> Machine Learning, Computer Programming (Python), Methods of Data Analysis, Applied Statistics, Probability with Computer Applications, Statistical Theory, Applied Linear Programming and Optimization, and Software Design.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <div class="contact">
+            <h2 class="section-title">Let's Connect</h2>
+            <p style="color: #6b7280; font-size: 1.1rem; margin-bottom: 2rem;">Ready to drive data-driven impact together? I'd love to discuss opportunities and collaborate on meaningful projects!</p>
+            
+            <div class="contact-info">
+                <a href="mailto:josphinenjagi.jn@gmail.com" class="contact-item">
+                    📧 josphinenjagi.jn@gmail.com
+                </a>
+                <a href="tel:+14169868043" class="contact-item">
+                    📱 +1 (416) 986-8043
+                </a>
+                <a href="https://linkedin.com/in/josphine-njagi" class="contact-item">
+                    💼 LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Josphine Njagi. Passionate about transforming data into actionable insights.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'white';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
